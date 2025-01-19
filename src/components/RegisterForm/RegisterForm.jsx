@@ -1,7 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import css from '../../styles/RegisterForm.module.css';
+import css from './RegisterForm.module.css';
 import * as yup from 'yup';
+
+import Button from '../Button/Button.jsx'
 
 // Валідація за допомогою Yup
 const schema = yup.object().shape({
@@ -15,24 +17,32 @@ const RegisterForm = () => {
         resolver: yupResolver(schema),
     });
 
-    const onSubmit = data => {
-        console.log(data); // Можете замінити на відправку на бекенд
+    const handleRegistration = () => {
+        console.log('Registration clicked');
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register('name')} placeholder="Name" />
+        <>
+        <form onSubmit={handleSubmit(handleRegistration)}>
+            <input {...register('name')} placeholder="Name"/>
             {errors.name && <p>{errors.name.message}</p>}
 
-            <input {...register('email')} placeholder="Email" />
+            <input {...register('email')} placeholder="Email"/>
             {errors.email && <p>{errors.email.message}</p>}
 
-            <input {...register('password')} placeholder="Password" />
+            <input {...register('password')} placeholder="Password"/>
             {errors.password && <p>{errors.password.message}</p>}
 
-            <button type="submit" className={css.btn}>Register</button>
+
+            {/*<button type="submit" className={css.btn}>Register</button>*/}
         </form>
-    );
+    <div className={css.submitBlock}>
+        <Button label="Registation" onClick={handleRegistration}></Button>
+        <p className={css.text}>Already have an account?</p>
+    </div>
+        </>
+)
+    ;
 };
 
 export default RegisterForm;
