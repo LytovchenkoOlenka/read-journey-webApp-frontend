@@ -1,0 +1,25 @@
+.button {
+    background-color: var(--white);
+    color: var(--light-black);
+    border-radius: 30px;
+    border: none;
+    padding: 12px;
+    min-width: 130px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: 0.02em;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Легка тінь */
+    transition: background-color 0.3s ease;
+}
+
+
+.button:hover {
+    background-color: #f0f0f0; /* Зміна кольору при наведенні */
+}
+
+.button:active {
+    box-shadow: none; /* Видалення тіні при натисканні */
+}
