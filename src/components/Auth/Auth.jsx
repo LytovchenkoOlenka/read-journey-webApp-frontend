@@ -13,7 +13,6 @@ return(
           <Logo/>
           <h2 className={css.title}>Expand your mind, reading <span className={css.highlightedText}>a book</span></h2>
           {children}
-
       </Frame>
         <Frame>
             <img src={iphone} alt="Phone" className={css.phoneImg}/>
