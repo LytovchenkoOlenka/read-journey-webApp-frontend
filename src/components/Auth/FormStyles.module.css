@@ -1,0 +1,31 @@
+.formWrapper{
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.submitBlock {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+}
+
+.link {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 117%;
+    letter-spacing: -0.06em;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #686868;
+}
+

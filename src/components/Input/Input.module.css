@@ -1,0 +1,50 @@
+.inputContainer {
+    width:295px;
+    position: relative;
+}
+
+/*.label {*/
+/*    font-size: 14px;*/
+/*    color: #888;*/
+/*    margin-bottom: 8px;*/
+/*}*/
+
+.input {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    padding: 14px ;
+    color: #fff;
+    background-color: var(--input-bg);
+    outline: none;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 133%;
+    letter-spacing: -0.02em;
+
+    transition: border-color 0.3s;
+}
+
+.input:focus {
+    background-color: var(--input-bg);
+    outline: none;
+    border: none;
+}
+
+.iconButton {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.iconButton:hover {
+    color: #fff;
+}
