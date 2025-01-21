@@ -1,15 +1,16 @@
 .formWrapper{
-    height: 210px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 40px;
+    gap: 8px;
 }
 
 .form{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 8px;
+    height: 210px;
+    margin-bottom: 40px;
 }
 
 .submitBlock {
@@ -27,5 +28,12 @@
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: #686868;
+
+    transition: color 0.5s ease;
+}
+
+.link:hover,
+.link:active {
+    color: var(--white);
 }
 

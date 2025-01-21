@@ -13,7 +13,7 @@
     box-sizing: border-box;
     width: 100%;
     border-radius: 12px;
-    border: none;
+    border: 1px solid transparent;
     padding: 14px ;
     color: #fff;
     background-color: var(--input-bg);
@@ -23,13 +23,16 @@
     line-height: 133%;
     letter-spacing: -0.02em;
 
-    transition: border-color 0.3s;
+    transition: border 0.3s ease;
 }
 
-.input:focus {
-    background-color: var(--input-bg);
+.input:hover,
+.input:focus,
+.input:active
+{
+    border: 1px solid rgba(249, 249, 249, 0.1);
+    border-radius: 12px;
     outline: none;
-    border: none;
 }
 
 .iconButton {
@@ -45,6 +48,23 @@
     padding: 0;
 }
 
-.iconButton:hover {
-    color: #fff;
+/*.iconButton:hover {*/
+/*    color: #fff;*/
+/*}*/
+
+
+.label {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: #686868;
+
+    pointer-events: none; /* щоб лейбл не блокував фокус */
+    transition: all 0.2s ease;
 }
