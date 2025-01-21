@@ -1,48 +1,54 @@
 import Button from '../Button/Button.jsx'
-import {useState} from "react";
+// import {useState} from "react";
 import css from '../Auth/FormStyles.module.css';
 import Input from "../Input/Input.jsx";
+import {useForm} from "react-hook-form";
 
 export default function LoginForm() {
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-    });
+    const {
+        handleSubmit,
+        setValue,
+        watch,
+        formState: { errors },
+    } = useForm();
 
-    const handleLogin = () => {
-        console.log('Login clicked');
-    };
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+    const onSubmit = (data) => {
+        console.log(data);
     };
 
 return (
-    <div className={css.formWrapper}>
-        <form className={css.form} autoComplete="off" onSubmit={(e) => e.preventDefault()}>
-            <Input
-                name="email"
-                type="email"
-                placeholder="Mail: your@email.com"
-                value={formData.email}
-                onChange={handleChange}
-            />
-            <Input
-                name="password"
-                type="password"
-                placeholder="Password: Yourpasswordhere"
-                value={formData.password}
-                onChange={handleChange}
-                withIcon
-            />
-        </form>
+        <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+            <div className={css.formWrapper}>
+            <div>
+                <Input
+                    type="email"
+                    placeholder="Mail: your@email.com"
+                    value={watch("email") || ""}
+                    onChange={(e) => setValue("email", e.target.value)}
+                />
+                {errors.email && <p className="error">{errors.email.message}</p>}
+            </div>
 
-        <div className={css.submitBlock}>
-            <Button label="Login" onClick={handleLogin}></Button>
-            <a className={css.link} href="/register">Don’t have an account?</a>
-        </div>
-    </div>)
+            <div>
+                <Input
+                    type="password"
+                    placeholder="Password: Yourpasswordhere"
+                    withIcon
+                    value={watch("password") || ""}
+                    onChange={(e) => setValue("password", e.target.value)}
+                />
+                {errors.password && <p className="error">{errors.password.message}</p>}
+            </div>
+            </div>
 
+
+            <div className={css.submitBlock}>
+                <Button
+                    type="submit" // Кнопка автоматично викликає сабміт при натисканні Enter
+                    label="Log in"
+                />
+                <a className={css.link} href="/register">Don’t have an account?</a>
+            </div>
+        </form>)
 
 }

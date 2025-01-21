@@ -4,8 +4,9 @@ import css from '../Auth/FormStyles.module.css';
 // import * as yup from 'yup';
 
 import Button from '../Button/Button.jsx'
-import {useState} from "react";
+// import {useState} from "react";
 import Input from '../Input/Input.jsx'
+import {useForm} from "react-hook-form";
 
 // Валідація за допомогою Yup
 // const schema = yup.object().shape({
@@ -15,54 +16,61 @@ import Input from '../Input/Input.jsx'
 // });
 
 export default function RegisterForm(){
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        password: "",
-    });
+    const {
+        handleSubmit,
+        setValue,
+        watch,
+        formState: { errors },
+    } = useForm();
 
-    const handleRegistration = () => {
-        console.log('Registration clicked');
-    };
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+    const onSubmit = (data) => {
+        console.log(data);
     };
 
     return (
-        <div className={css.formWrapper}>
-        <form className={css.form} autoComplete="off">
-            <Input
-                name="name"
-                type="text"
-                placeholder="Name: Ilona Ratushniak"
-                value={formData.name}
-                onChange={handleChange}
-            />
-            <Input
-                name="email"
-                type="email"
-                placeholder="Mail: your@email.com"
-                value={formData.email}
-                onChange={handleChange}
-            />
-            <Input
-                name="password"
-                type="password"
-                placeholder="Password: Yourpasswordhere"
-                value={formData.password}
-                onChange={handleChange}
-                withIcon
-            />
-            {/*<button type="submit" className={css.btn}>Register</button>*/}
-        </form>
-
-    <div className={css.submitBlock}>
-        <Button label="Registation" onClick={handleRegistration}></Button>
-        <a className={css.link} href="/login" >Already have an account?</a>
-    </div>
-        </div>
-)
-    ;
-};
+        <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+            <div className={css.formWrapper}>
+                <div>
+                    <Input
+                        // label="Name:"
+                        name="name"
+                        type="text"
+                        placeholder="Name:Ilona Ratushniak"
+                        value={watch("name") || ""}
+                        onChange={(e) => setValue("name", e.target.value)}
+                    />
+                    {errors.password && <p className="error">{errors.password.message}</p>}
+                </div>
+                <div>
+                    <Input
+                        // label="Mail:"
+                        name="email"
+                        type="email"
+                        placeholder="Mail: your@email.com"
+                        value={watch("email") || ""}
+                        onChange={(e) => setValue("email", e.target.value)}
+                    />
+                    {errors.password && <p className="error">{errors.password.message}</p>}
+                </div>
+                <div>
+                    <Input
+                        // label="Password:"
+                        name="password"
+                        type="password"
+                        placeholder="Password: Yourpasswordhere"
+                        value={watch("password") || ""}
+                        onChange={(e) => setValue("password", e.target.value)}
+                        withIcon
+                    />
+                    {errors.password && <p className="error">{errors.password.message}</p>}
+                </div>
+            </div>
+            <div className={css.submitBlock}>
+                    <Button
+                        type="submit" // Кнопка автоматично викликає сабміт при натисканні Enter
+                        label="Registation"
+                    />
+                    <a className={css.link} href="/login">Don’t have an account?</a>
+                </div>
+        </form>)
+}
