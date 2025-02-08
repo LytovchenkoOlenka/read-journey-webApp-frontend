@@ -1,7 +1,7 @@
 // import { useForm } from 'react-hook-form';
-// import { yupResolver } from '@hookform/resolvers/yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import css from '../Auth/FormStyles.module.css';
-// import * as yup from 'yup';
+import * as yup from 'yup';
 
 import Button from '../Button/Button.jsx'
 // import {useState} from "react";
@@ -9,11 +9,11 @@ import Input from '../Input/Input.jsx'
 import {useForm} from "react-hook-form";
 
 // Валідація за допомогою Yup
-// const schema = yup.object().shape({
-//     name: yup.string().required('Name is required'),
-//     email: yup.string().email('Invalid email').required('Email is required'),
-//     password: yup.string().min(7, 'Password must be at least 7 characters').required('Password is required'),
-// });
+const schema = yup.object().shape({
+    name: yup.string().required('Name is required'),
+    email: yup.string().email('Invalid email').required('Email is required'),
+    password: yup.string().min(7, 'Password must be at least 7 characters').required('Password is required'),
+});
 
 export default function RegisterForm(){
     const {
@@ -21,7 +21,7 @@ export default function RegisterForm(){
         setValue,
         watch,
         formState: { errors },
-    } = useForm();
+    } = useForm({resolver: yupResolver(schema),});
 
     const onSubmit = (data) => {
         console.log(data);
@@ -39,7 +39,7 @@ export default function RegisterForm(){
                         value={watch("name") || ""}
                         onChange={(e) => setValue("name", e.target.value)}
                     />
-                    {errors.password && <p className="error">{errors.password.message}</p>}
+                    {errors.name && <p className="error">{errors.name.message}</p>}
                 </div>
                 <div>
                     <Input
@@ -50,7 +50,7 @@ export default function RegisterForm(){
                         value={watch("email") || ""}
                         onChange={(e) => setValue("email", e.target.value)}
                     />
-                    {errors.password && <p className="error">{errors.password.message}</p>}
+                    {errors.email && <p className="error">{errors.email.message}</p>}
                 </div>
                 <div>
                     <Input
