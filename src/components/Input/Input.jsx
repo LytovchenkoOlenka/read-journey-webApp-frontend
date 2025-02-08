@@ -1,5 +1,7 @@
 import css from './Input.module.css'
 import {useState} from "react";
+import sprite from '../../assets/icons.svg'
+
 
 export default function Input({label,type,placeholder,value,onChange,withIcon}) {
     const [showPassword, setShowPassword] = useState(false)
@@ -24,7 +26,9 @@ return(
                 type="button"
                 onClick={togglePasswordVisibility}
             >
-                {showPassword ? "👁️" : "🙈"}
+                <svg className={css.icon} width={20} height={20}>
+                    <use href={showPassword ? `${sprite}#icon-eye-off` : `${sprite}#icon-eye`} />
+                </svg>
             </button>)
         }
 
