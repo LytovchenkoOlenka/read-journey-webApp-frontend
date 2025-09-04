@@ -1,72 +1,64 @@
 .inputContainer {
-    width:295px;
-    position: relative;
+  width: 295px;
+  position: relative;
 }
 
-/*.label {*/
-/*    font-size: 14px;*/
-/*    color: #888;*/
-/*    margin-bottom: 8px;*/
-/*}*/
-
 .input {
-    box-sizing: border-box;
-    width: 100%;
-    border-radius: 12px;
-    border: 1px solid transparent;
-    padding: 14px ;
-    color: #fff;
-    background-color: var(--input-bg);
-    outline: none;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 133%;
-    letter-spacing: -0.02em;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  padding: 14px;
+  color: #fff;
+  background-color: var(--input-bg);
+  outline: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
 
-    transition: border 0.3s ease;
+  transition: border 0.3s ease;
 }
 
 .input:hover,
 .input:focus,
-.input:active
-{
-    border: 1px solid rgba(249, 249, 249, 0.1);
-    border-radius: 12px;
-    outline: none;
+.input:active {
+  border: 1px solid rgba(249, 249, 249, 0.1);
+  border-radius: 12px;
+  outline: none;
 }
 
 .iconButton {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: #888;
-    font-size: 18px;
-    cursor: pointer;
-    padding: 0;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
 }
 
 /*.iconButton:hover {*/
 /*    color: #fff;*/
 /*}*/
 
-
 .label {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
 
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 129%;
-    letter-spacing: -0.02em;
-    color: #686868;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #686868;
 
-    pointer-events: none; /* щоб лейбл не блокував фокус */
-    transition: all 0.2s ease;
+  pointer-events: none; /* щоб лейбл не блокував фокус */
+  transition: all 0.2s ease;
 }
 
 /*.icon {*/
