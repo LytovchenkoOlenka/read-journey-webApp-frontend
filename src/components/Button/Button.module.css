@@ -1,23 +1,22 @@
 .button {
-    background-color: var(--white);
-    color: var(--light-black);
-    border-radius: 30px;
-    border: 1px solid transparent;
-    padding: 12px;
-    min-width: 130px;
+  background-color: #f9f9f9;
+  color: #1f1f1f;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  padding: 12px;
+  min-width: 130px;
 
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 129%;
-    letter-spacing: 0.02em;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: 0.02em;
 
-    transition: background-color 0.5s ease,border 0.5s ease,color 0.5s ease;
+  transition: background-color 0.5s ease, border 0.5s ease, color 0.5s ease;
 }
-
 
 .button:hover,
 .button:active {
-    border: 1px solid rgba(249, 249, 249, 0.2);
-    background-color: transparent;
-    color: var(--white);
+  border: 1px solid rgba(249, 249, 249, 0.2);
+  background-color: transparent;
+  color: #f9f9f9;
 }
