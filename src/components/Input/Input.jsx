@@ -1,4 +1,3 @@
-// import css from "./Input.module.css";
 import { useState } from "react";
 import sprite from "../../assets/icons.svg";
 
@@ -12,14 +11,14 @@ export default function Input({ label, type, name, ...rest }) {
   return (
     <div
       className="
-        flex items-center  rounded-xl border border-transparent 
+          h-[44px] flex items-center  rounded-xl border border-transparent
         bg-gray-dark p-3.5 transition duration-300 ease-in-out
-        focus-within:border-white/10 hover:border-white/10
+        focus-within:border-white/10 hover:border-white/10  tablet:py-4 tablet:h-[50px] 
       "
     >
       <label
         htmlFor={name}
-        className="font-medium text-xs leading-[1.33] tracking-tight text-gray-medium pr-2"
+        className="font-medium text-xs leading-[1.33] tracking-tight text-gray-medium pr-2 tablet:text-sm"
       >
         {label}
       </label>
@@ -28,8 +27,8 @@ export default function Input({ label, type, name, ...rest }) {
         name={name}
         type={type === "password" && showPassword ? "text" : type}
         className="
-          w-full bg-transparent text-white font-medium text-xs 
-          leading-[1.33] tracking-tight outline-none
+         w-full bg-transparent text-white font-medium text-xs 
+          leading-[1.33] tracking-tight outline-none 
         "
         autoComplete="off"
         {...rest}
