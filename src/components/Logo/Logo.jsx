@@ -1,12 +1,13 @@
-import css from "./Logo.module.css";
+import { Link } from "react-router-dom";
 import logo from "/logo.svg";
 
-
 export default function Logo() {
-
-    return (
-            <a href="/" className={css.logoLink}>
-                <img src={logo} alt="LogoOfTheHeader" />
-            </a>
-    );
+  return (
+    <Link to="/" className="flex tablet:gap-1 ">
+      <img src={logo} alt="LogoOfTheHeader" />
+      <p className="hidden tablet:block tablet:font-bold tablet:text-lg tablet:leading-none">
+        READ JOURNEY
+      </p>
+    </Link>
+  );
 }
