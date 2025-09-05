@@ -5,7 +5,7 @@ export default {
     extend: {
       screens: {
         tablet: "768px",
-        desktop: "1440px",
+        desktop: "1280px",
       },
 
       colors: {
@@ -14,10 +14,10 @@ export default {
         black: "#141414",
 
         // ## Відтінки сірого
-        "gray-light": "#E3E3E3", // Для прозорості 30% використовуй клас: bg-gray-light/30
+        "gray-light": "#E3E3E3",
         "gray-medium": "#686868",
         "gray-dark": "#262626",
-        charcoal: "#1F1F1F", // Дуже темний сірий
+        charcoal: "#1F1F1F",
 
         // ## Акцентні кольори
         "accent-blue": "#4F92F7",
@@ -26,6 +26,9 @@ export default {
 
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
+      },
+      letterSpacing: {
+        base: "-0.02rem",
       },
     },
   },

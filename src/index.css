@@ -10,6 +10,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
+  border: none;
   -webkit-text-fill-color: #f9f9f9 !important;
   -webkit-box-shadow: 0 0 0 30px #262626 inset !important;
   box-shadow: 0 0 0 30px #262626 inset !important;
