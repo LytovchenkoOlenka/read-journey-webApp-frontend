@@ -1,5 +1,9 @@
-import css from './Frame.module.css';
-
-export default function Frame ({ children}){
-    return <div className={css.frame}>{children}</div>;
-};
+export default function Frame({ children, className = "py-5" }) {
+  return (
+    <div
+      className={`h-full flex flex-col px-5 bg-charcoal  rounded-[30px]  ${className}  `}
+    >
+      {children}
+    </div>
+  );
+}
