@@ -28,44 +28,36 @@ export default function RegisterForm() {
 
   return (
     <form
-      className="flex flex-col gap-5 justify-between mb-10"
+      className="flex flex-col justify-between h-[210px] tablet:h-[312px] "
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="flex flex-col gap-2">
-        <div>
-          <Input label="Name:" name="name" type="text" {...register("name")} />
-          {errors.name && <p className="error">{errors.name.message}</p>}
-        </div>
-        <div>
-          <Input
-            label="Mail:"
-            name="email"
-            type="email"
-            {...register("email")}
-          />
-          {errors.name && (
-            <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
-          )}
-        </div>
-        <div>
-          <Input
-            label="Password:"
-            name="password"
-            type="password"
-            {...register("password")}
-          />
-          {errors.password && (
-            <p className="error">{errors.password.message}</p>
-          )}
-        </div>
+      <div className="flex flex-col gap-2 tablet:gap-3.5">
+        <Input label="Name:" name="name" type="text" {...register("name")} />
+        {errors.name && (
+          <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
+        )}
+
+        <Input label="Mail:" name="email" type="email" {...register("email")} />
+        {errors.name && (
+          <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
+        )}
+
+        <Input
+          label="Password:"
+          name="password"
+          type="password"
+          {...register("password")}
+        />
+        {errors.password && (
+          <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>
+        )}
       </div>
-      <div className="flex items-center gap-3.5">
+      <div className="flex items-center gap-3.5 tablet:gap-5">
         <Button type="submit">Registration</Button>
         <Link
           to="/login"
-          className="text-xs leading-[1.17] tracking-tight 
-    underline text-gray-medium 
-    hover:text-white transition-colors duration-300"
+          className="text-xs underline text-gray-medium 
+    hover:text-white transition-colors duration-300 tablet:text-sm tablet:leading-[1.29] tablet:tracking-tight"
         >
           Already have an account?
         </Link>
