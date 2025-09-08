@@ -21,13 +21,13 @@ export default function Auth({ children }) {
         {/* Нижня частина картки (форма) */}
         <div>{children}</div>
       </Frame>
-      <Frame className="h-full justify-end pb-0 pt-5 px-10 tablet:hidden desktop:block desktop:pt-20 desktop:px-24 ">
+      <Frame className="h-full justify-end pb-0 pt-5 px-10 tablet:hidden desktop:block desktop:pt-20 desktop:px-16 ">
         <picture>
           <source media="(min-width: 1280px)" srcSet={iphoneDesktop} />
           <img
             src={iphoneMobile}
             alt="Phone"
-            className="w-full h-full object-cover"
+            className="h-full object-cover my-0 mx-auto"
           />
         </picture>
       </Frame>
