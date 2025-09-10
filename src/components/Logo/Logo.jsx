@@ -3,7 +3,7 @@ import logo from "/logo.svg";
 
 export default function Logo() {
   return (
-    <Link to="/" className="flex tablet:gap-1 ">
+    <Link to="/" className="flex items-center tablet:gap-1 ">
       <img src={logo} alt="LogoOfTheHeader" />
       <p className="hidden tablet:block tablet:font-bold tablet:text-lg tablet:leading-none">
         READ JOURNEY
