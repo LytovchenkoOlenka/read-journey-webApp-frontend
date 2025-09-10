@@ -1,11 +1,12 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Link } from "react-router-dom";
-import Button from "../Button/Button.jsx";
-// import {useState} from "react";
-// import css from "../Auth/FormStyles.module.css";
+import { Link, useNavigate } from "react-router-dom";
+import SubmitButton from "../Button/SubmitButton.jsx";
 import Input from "../Input/Input.jsx";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { useActionState } from "react";
+import { logIn } from "../../redux/auth/operations.js";
 
 // Валідація за допомогою Yup
 const schema = yup.object().shape({
@@ -17,28 +18,43 @@ const schema = yup.object().shape({
 });
 
 export default function LoginForm() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logInAction = async (previousState, formData) => {
+    const credentials = Object.fromEntries(formData.entries());
+    try {
+      const result = await dispatch(logIn(credentials)).unwrap();
+      navigate("/recommended");
+      console.log(result);
+      return { success: true, message: "Authentication successful!" };
+    } catch (error) {
+      return { success: false, message: error };
+    }
+  };
+
   const {
-    register,
-    handleSubmit,
+    register: logInField,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema), mode: "onChange" });
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const [state, formAction] = useActionState(logInAction, {
+    success: false,
+    message: null,
+  });
 
   return (
     <form
       className="flex flex-col gap-5 justify-between h-[210px] tablet:h-[312px]"
-      onSubmit={handleSubmit(onSubmit)}
+      action={formAction}
     >
       <div className="flex flex-col gap-2 tablet:gap-3.5 ">
-        <Input label="Mail:" type="email" {...register("email")} />
+        <Input label="Mail:" type="email" {...logInField("email")} />
         {errors.email && (
           <p className="text-red-500 text-[10px] m-0">{errors.email.message}</p>
         )}
 
-        <Input label="Password:" type="password" {...register("password")} />
+        <Input label="Password:" type="password" {...logInField("password")} />
         {errors.password && (
           <p className="text-red-500 text-[10px] m-0">
             {errors.password.message}
@@ -47,7 +63,7 @@ export default function LoginForm() {
       </div>
 
       <div className="flex items-center gap-3.5 tablet:gap-5">
-        <Button type="submit">Log in</Button>
+        <SubmitButton pendingText="Log in...">Log in</SubmitButton>
         <Link
           to="/register"
           className="text-xs underline text-gray-medium 
@@ -56,16 +72,11 @@ export default function LoginForm() {
           Don’t have an account?
         </Link>
       </div>
+
+      {/* Потім це буде сприваюче віконце NOTIFICATION */}
+      {!state.success && state.message && (
+        <p className="text-red-500 text-xs mt-1">{state.message}</p>
+      )}
     </form>
   );
 }
-
-// font-family: var(--font-family);
-// font-weight: 500;
-// font-size: 14px;
-// line-height: 129%;
-// letter-spacing: -0.02em;
-// text-decoration: underline;
-// text-decoration-skip-ink: none;
-// text-align: center;
-// color: #686868;
