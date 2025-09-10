@@ -20,9 +20,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* <Route path='/' element={<Home/>}/> */}
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/recommended" element={<RecommendedPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="recommended" element={<RecommendedPage />} />
         </Route>
       </Routes>
     </>
