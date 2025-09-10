@@ -1,23 +1,21 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { useFormStatus } from "react-dom";
-import { Link, useNavigate } from "react-router-dom";
-import Button from "../Button/Button.jsx";
-import Input from "../Input/Input.jsx";
-import { useDispatch } from "react-redux";
-import { register } from "../../redux/auth/operations.js";
+// React & React DOM hooks
 import { useActionState } from "react";
 
-// Окрема кнопка, щоб використовувати useFormStatus
-function SubmitButton() {
-  const { pending } = useFormStatus(); // 👈 Хук, що відстежує стан відправки форми
-  return (
-    <Button type="submit" disabled={pending}>
-      {pending ? "Registering..." : "Registration"}
-    </Button>
-  );
-}
+// React Router for navigation
+import { Link, useNavigate } from "react-router-dom";
+
+// Redux
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/auth/operations.js";
+
+// Client-side validation
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+// UI Components
+import SubmitButton from "../Button/SubmitButton.jsx";
+import Input from "../Input/Input.jsx";
 
 // Валідація за допомогою Yup
 const schema = yup.object().shape({
@@ -95,8 +93,7 @@ export default function RegisterForm() {
         )}
       </div>
       <div className="flex items-center gap-3.5 tablet:gap-5">
-        {/* <Button type="submit">Registration</Button> */}
-        <SubmitButton />
+        <SubmitButton pendingText="Registering...">Registration</SubmitButton>
         <Link
           to="/login"
           className="text-xs underline text-gray-medium 
@@ -106,6 +103,7 @@ export default function RegisterForm() {
         </Link>
       </div>
 
+      {/* Потім це буде сприваюче віконце NOTIFICATION */}
       {!state.success && state.message && (
         <p className="text-red-500 text-xs mt-1">{state.message}</p>
       )}
