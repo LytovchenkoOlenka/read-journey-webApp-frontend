@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 // Redux
 import { useDispatch } from "react-redux";
-import { register } from "../../redux/auth/operations.js";
+import { signUp } from "../../redux/auth/operations.js";
 
 // Client-side validation
 import { useForm } from "react-hook-form";
@@ -31,10 +31,10 @@ export default function RegisterForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const registerAction = async (previousState, formData) => {
+  const signUpAction = async (previousState, formData) => {
     const credentials = Object.fromEntries(formData.entries());
     try {
-      const result = await dispatch(register(credentials)).unwrap();
+      const result = await dispatch(signUp(credentials)).unwrap();
       navigate("/recommended");
       console.log(result);
       return { success: true, message: "Registration successful!" };
@@ -44,14 +44,14 @@ export default function RegisterForm() {
   };
 
   const {
-    register: registerField,
+    register: signUpField,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
 
-  const [state, formAction] = useActionState(registerAction, {
+  const [state, formAction] = useActionState(signUpAction, {
     success: false,
     message: null,
   });
@@ -62,12 +62,7 @@ export default function RegisterForm() {
       action={formAction}
     >
       <div className="flex flex-col gap-2 tablet:gap-3.5">
-        <Input
-          label="Name:"
-          name="name"
-          type="text"
-          {...registerField("name")}
-        />
+        <Input label="Name:" name="name" type="text" {...signUpField("name")} />
         {errors.name && (
           <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
         )}
@@ -76,7 +71,7 @@ export default function RegisterForm() {
           label="Mail:"
           name="email"
           type="email"
-          {...registerField("email")}
+          {...signUpField("email")}
         />
         {errors.email && (
           <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
@@ -86,7 +81,7 @@ export default function RegisterForm() {
           label="Password:"
           name="password"
           type="password"
-          {...registerField("password")}
+          {...signUpField("password")}
         />
         {errors.password && (
           <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>

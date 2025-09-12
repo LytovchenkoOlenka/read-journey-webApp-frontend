@@ -6,7 +6,7 @@ import Input from "../Input/Input.jsx";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useActionState } from "react";
-import { logIn } from "../../redux/auth/operations.js";
+import { signIn } from "../../redux/auth/operations.js";
 
 // Валідація за допомогою Yup
 const schema = yup.object().shape({
@@ -21,10 +21,10 @@ export default function LoginForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const logInAction = async (previousState, formData) => {
+  const signInAction = async (previousState, formData) => {
     const credentials = Object.fromEntries(formData.entries());
     try {
-      const result = await dispatch(logIn(credentials)).unwrap();
+      const result = await dispatch(signIn(credentials)).unwrap();
       navigate("/recommended");
       console.log(result);
       return { success: true, message: "Authentication successful!" };
@@ -34,11 +34,11 @@ export default function LoginForm() {
   };
 
   const {
-    register: logInField,
+    register: signInField,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema), mode: "onChange" });
 
-  const [state, formAction] = useActionState(logInAction, {
+  const [state, formAction] = useActionState(signInAction, {
     success: false,
     message: null,
   });
@@ -49,12 +49,12 @@ export default function LoginForm() {
       action={formAction}
     >
       <div className="flex flex-col gap-2 tablet:gap-3.5 ">
-        <Input label="Mail:" type="email" {...logInField("email")} />
+        <Input label="Mail:" type="email" {...signInField("email")} />
         {errors.email && (
           <p className="text-red-500 text-[10px] m-0">{errors.email.message}</p>
         )}
 
-        <Input label="Password:" type="password" {...logInField("password")} />
+        <Input label="Password:" type="password" {...signInField("password")} />
         {errors.password && (
           <p className="text-red-500 text-[10px] m-0">
             {errors.password.message}
