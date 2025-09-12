@@ -6,10 +6,15 @@ import Logo from "../Logo/Logo.jsx";
 export default function Auth({ children }) {
   return (
     <div className="min-h-screen my-0 mx-auto grid grid-cols-1  p-5 gap-[10px] tablet:p-8 desktop:gap-4 desktop:grid-cols-2">
-      <Frame className=" pb-10 pt-5 gap-5 tablet:gap-10 tablet:pt-10 tablet:pb-[212px] tablet:pl-16 tablet:pr-[168px] desktop:pt-10 desktop:pb-10 desktop:px-16">
+      <Frame className="flex-col pb-10 pt-5 gap-5 tablet:gap-10 tablet:pt-10 tablet:pb-[212px] tablet:pl-16 tablet:pr-[168px] desktop:pt-10 desktop:pb-10 desktop:px-16">
         {/* Верхня частина картки */}
         <div>
-          <Logo />
+          <div>
+            <Logo />
+            <p className="hidden tablet:block tablet:font-bold tablet:text-lg tablet:leading-none">
+              READ JOURNEY
+            </p>
+          </div>
           <h2
             className="text-3xl font-medium leading-none tracking-[0.02em]  mt-10
             tablet:text-[64px] tablet:leading-[94%] tablet:mt-40 desktop:mt-[107px]"

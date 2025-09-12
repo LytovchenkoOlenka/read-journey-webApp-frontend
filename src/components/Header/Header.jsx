@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header className="flex flex-row justify-between rounded-[15px] px-5 py-3 bg-charcoal ">
-      <Logo />
+      <Logo textClasses="hidden desktop:block" />
 
       {/* Цей блок з'являється тільки на екранах від 'tablet' і ширше */}
       <div className="hidden tablet:flex items-center">
