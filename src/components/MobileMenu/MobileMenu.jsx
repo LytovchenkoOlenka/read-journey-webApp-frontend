@@ -2,7 +2,7 @@ import Navigation from "../Navigation/Navigation";
 import sprite from "../../assets/icons.svg";
 import Button from "../Button/Button";
 
-export default function MobileMenu({ isOpen, onClose }) {
+export default function MobileMenu({ isOpen, onClose, onSignOut }) {
   return (
     <div
       className={`
@@ -30,7 +30,7 @@ export default function MobileMenu({ isOpen, onClose }) {
           <Navigation />
           <Button
             variant="transparent"
-            onClick={() => console.log("Log out action")}
+            onClick={onSignOut}
             className="min-w-[100px] p-2"
           >
             Log out
