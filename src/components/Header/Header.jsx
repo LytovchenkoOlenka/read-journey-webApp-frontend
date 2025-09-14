@@ -29,38 +29,38 @@ export default function Header() {
   };
 
   return (
-    <header className="flex flex-row justify-between rounded-[15px] px-5 py-3 bg-charcoal ">
-      <Logo textClasses="hidden desktop:block" />
+    <header className="flex flex-row justify-between rounded-[15px] px-5 py-3 bg-charcoal relative">
+      <div className="flex w-full justify-between">
+        <Logo textClasses="hidden desktop:block" />
+
+        <div className="flex items-center gap-3 tablet:gap-4">
+          <UserInfo />
+
+          {/* Ця кнопка з'являється тільки на екранах від 'tablet' і ширше */}
+          <Button
+            variant="transparent"
+            onClick={handleSignOut}
+            className="hidden min-w-[100px] py-3 px-7 tablet:block"
+          >
+            Log out
+          </Button>
+          {/* Ця кнопка з'являється тільки на мобільних екранах  */}
+          <button
+            type="button"
+            onClick={toggleMenu}
+            className="p-0 bg-transparent border-none tablet:hidden"
+          >
+            <svg width={28} height={28} className="stroke-white">
+              <use href={`${sprite}#icon-menu`} />
+            </svg>
+          </button>
+        </div>
+      </div>
 
       {/* Цей блок з'являється тільки на екранах від 'tablet' і ширше */}
-      <div className="hidden tablet:flex items-center">
+      <div className="hidden tablet:block  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <Navigation />
       </div>
-
-      <div className="flex items-center gap-3 tablet:gap-4">
-        <UserInfo />
-
-        {/* Ця кнопка з'являється тільки на екранах від 'tablet' і ширше */}
-        <Button
-          variant="transparent"
-          onClick={handleSignOut}
-          className="hidden min-w-[100px] p-2 tablet:block"
-        >
-          Log out
-        </Button>
-
-        {/* Ця кнопка з'являється тільки на мобільних екранах  */}
-        <button
-          type="button"
-          onClick={toggleMenu}
-          className="p-0 bg-transparent border-none tablet:hidden"
-        >
-          <svg width={28} height={28} className="stroke-white">
-            <use href={`${sprite}#icon-menu`} />
-          </svg>
-        </button>
-      </div>
-
       <MobileMenu
         isOpen={isMenuOpen}
         onClose={toggleMenu}

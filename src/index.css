@@ -26,7 +26,8 @@ input:-webkit-autofill:active {
   .active-nav-link::after {
     content: "";
     @apply absolute 
-      bottom-[-4px] 
+      bottom-[-4px]
+      tablet:bottom-[-8px] 
       left-[-2px] 
       right-[-2px]
       h-[3px] 
