@@ -14,7 +14,7 @@ const variants = {
 export default function Button({
   children,
   onClick,
-  variant = "white",
+  variant = "transparent",
   className = "px-7",
 }) {
   const variantStyles = variants[variant] || variants.white;

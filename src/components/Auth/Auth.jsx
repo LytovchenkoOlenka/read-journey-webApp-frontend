@@ -9,7 +9,7 @@ export default function Auth({ children }) {
       <Frame className="flex-col pb-10 pt-5 gap-5 tablet:gap-10 tablet:pt-10 tablet:pb-[212px] tablet:pl-16 tablet:pr-[168px] desktop:pt-10 desktop:pb-10 desktop:px-16">
         {/* Верхня частина картки */}
         <div>
-          <div>
+          <div className="flex gap-1 items-center">
             <Logo />
             <p className="hidden tablet:block tablet:font-bold tablet:text-lg tablet:leading-none">
               READ JOURNEY

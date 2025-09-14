@@ -18,7 +18,7 @@ export default function Input({ label, type, name, ...rest }) {
     >
       <label
         htmlFor={name}
-        className="font-medium text-xs leading-[1.33] tracking-tight text-gray-medium pr-2 tablet:text-sm"
+        className="font-medium flex-shrink-0 text-xs leading-[1.33] tracking-tight text-gray-medium mr-2 tablet:text-sm"
       >
         {label}
       </label>

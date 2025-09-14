@@ -5,7 +5,7 @@ export default function SubmitButton({
   children,
   pendingText,
   // variant,
-  // className,
+  className,
 }) {
   const { pending } = useFormStatus();
 
@@ -14,7 +14,7 @@ export default function SubmitButton({
       type="submit"
       disabled={pending}
       // variant={variant}
-      // className={className}
+      className={className}
     >
       {pending ? pendingText : children}
     </Button>
