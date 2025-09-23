@@ -4,7 +4,7 @@ import RecommendedBooks from "../../components/RecommendedBooks/RecommendedBooks
 import { fetchRecommendedBooks } from "../../redux/books/operations";
 import { useEffect } from "react";
 
-export default function RegisterPage() {
+export default function RecommendedPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -12,9 +12,11 @@ export default function RegisterPage() {
   }, [dispatch]);
 
   return (
-    <>
-      <Dashboard />
-      <RecommendedBooks />
-    </>
+    <div className="flex flex-col gap-5 desktop:flex-row">
+      <Dashboard page="recommended" />
+      <div className="flex-grow">
+        <RecommendedBooks />
+      </div>
+    </div>
   );
 }
