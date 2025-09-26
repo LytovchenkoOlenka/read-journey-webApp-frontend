@@ -43,5 +43,8 @@
         <symbol id="icon-navigate" viewBox="0 0 32 32">
             <path fill="none" stroke="#f9f9f9" style="stroke: var(--color1, #f9f9f9)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M18.667 22.667l6.667-6.667-6.667-6.667M25.333 16h-18.667"></path>
         </symbol>
+        <symbol id="icon-close" viewBox="0 0 32 32">
+            <path fill="none" stroke="#f9f9f9" style="stroke: var(--color1, #f9f9f9)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.9091" d="M24 8l-16 16M8 8l16 16"></path>
+        </symbol>
     </defs>
 </svg>
