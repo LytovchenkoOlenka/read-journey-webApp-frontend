@@ -6,7 +6,7 @@ export default function DashboardFilter() {
     <div className="w-[295px] flex-shrink-0 desktop:w-[313px]">
       <p className="pl-3.5 mb-2 text-2.5 ">Filters:</p>
       <form
-        className="flex flex-col gap-5 mb-5 items-start "
+        className="flex flex-col gap-5 mb-5 items-start desktop:m-0"
         // action={formAction}
       >
         <div className="flex flex-col gap-2 tablet:gap-3.5 w-full">

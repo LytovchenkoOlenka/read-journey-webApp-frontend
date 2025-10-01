@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 export default function Navigation() {
   const getNavLinkClass = ({ isActive }) => {
     const commonClasses =
-      "text-sm tracking-tight transition hover:text-white relative";
+      "text-sm tracking-tight transition hover:text-white relative desktop:text-xl";
     const activeClasses = "text-white active-nav-link";
     const inactiveClasses = "text-gray-medium";
     return `${commonClasses} ${isActive ? activeClasses : inactiveClasses}`;
