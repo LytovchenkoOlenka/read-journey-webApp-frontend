@@ -8,28 +8,31 @@ export default function BookDetails({ book, onClose }) {
   };
 
   return (
-    <div className="relative">
-      <button onClick={onClose} className="absolute -top-6 -right-6">
+    <div className="relative px-24 py-10">
+      <button onClick={onClose} className="absolute top-4 right-4">
         <svg width={22} height={22} className="stroke-white">
           <use href={`${sprite}#icon-close`} />
         </svg>
       </button>
 
-      <div className="flex gap-8">
+      <div className="flex flex-col ">
         <img
           src={book.imageUrl}
           alt={`Cover of ${book.title}`}
-          className="w-1/3 rounded-lg"
+          className="rounded-lg mb-4"
         />
-        <div>
-          <h3 className="text-2xl font-bold">{book.title}</h3>
-          <p className="text-sm text-gray-medium mt-1 mb-4">{book.author}</p>
-          <p className="text-base">{book.totalPages} pages</p>
 
-          <Button onClick={handleAddBook} className="mt-8">
-            Add to library
-          </Button>
+        <div className="text-center text-white mb-5">
+          <h3 className="text-lg font-bold mb-0.5 leading-none tracking-tight">
+            {book.title}
+          </h3>
+          <p className="text-xs text-gray-medium mb-1">{book.author}</p>
+          <p className="text-[10px] leading-[1.2]">{book.totalPages} pages</p>
         </div>
+
+        <Button onClick={handleAddBook} className="">
+          Add to library
+        </Button>
       </div>
     </div>
   );

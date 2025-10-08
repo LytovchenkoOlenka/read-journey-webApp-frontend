@@ -12,11 +12,19 @@ export default function Modal({ children, open, className = "", onClose }) {
 
     return () => modal.close();
   }, [open]);
+
+  function handleBackdropClick(event) {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  }
+
   return createPortal(
     <dialog
       ref={dialog}
-      className={`bg-charcoal border border-gray-medium rounded-xl w-[500px] h-[500px] p-10 ${className}`}
+      className={`bg-charcoal border border-gray-medium/20 rounded-xl ${className}`}
       onClose={onClose}
+      onClick={handleBackdropClick}
     >
       {children}
     </dialog>,

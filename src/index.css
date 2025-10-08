@@ -34,4 +34,8 @@ input:-webkit-autofill:active {
       bg-accent-blue 
       rounded-lg;
   }
+
+  dialog::backdrop {
+    background-color: rgba(20, 20, 20, 0.6);
+  }
 }

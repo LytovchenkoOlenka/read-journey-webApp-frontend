@@ -24,7 +24,7 @@ function App() {
   }, [dispatch]);
 
   if (isRefreshing) {
-    return <b>Refreshing user...</b>; // або твій компонент спіннера
+    return <b>Refreshing user...</b>; // компонент спіннера
   }
 
   return (
