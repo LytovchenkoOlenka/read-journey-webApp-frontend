@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import Frame from "../Frame/Frame";
 import { selectRecommendedBooks } from "../../redux/books/selectors";
-import BookCard from "../BookCard/BookCard";
+import BookSwiper from "../BookSwiper/BookSwiper";
+// import BookCard from "../BookCard/BookCard";
 import Modal from "../Modal/Modal";
 import { useState } from "react";
 import BookDetails from "../BookModal/BookDetails";
@@ -24,17 +25,11 @@ export default function RecommendedBooks() {
   return (
     <>
       <Frame className="w-full flex-col gap-8 py-10 desktop:p-10 ">
-        <h3 className="font-bold text-xl">Recommended</h3>
-
-        <ul className="grid grid-cols-2 gap-[21px] tablet:grid-cols-4 tablet:gap-[26px] desktop:grid-cols-5 desktop:gap-x-5 desktop:gap-y-7">
-          {books.map((book) => (
-            <BookCard
-              key={book._id}
-              book={book}
-              onClick={() => handleOpenModal(book)}
-            />
-          ))}
-        </ul>
+        <div className="flex items-center">
+          <h3 className="font-bold text-xl">Recommended</h3>
+          {/* Тут будуть кастомні стрілки, якщо потрібні */}
+        </div>
+        <BookSwiper books={books} onBookClick={handleOpenModal} />
       </Frame>
 
       {selectedBook && (
