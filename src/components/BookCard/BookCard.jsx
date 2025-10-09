@@ -1,5 +1,3 @@
-// import { Link } from "react-router-dom";
-
 export default function BookCard({ book, onClick }) {
   return (
     <li key={book._id} className="flex flex-col">
@@ -11,7 +9,7 @@ export default function BookCard({ book, onClick }) {
             className="w-full h-full object-fill rounded-lg"
           />
         </div>
-        <div>
+        <div className="text-start">
           <p className="font-bold text-sm mb-1 truncate">{book.title}</p>
           <p className="text-[10px] text-gray-medium truncate">{book.author}</p>
         </div>
